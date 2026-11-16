@@ -143,30 +143,6 @@
       },
       "category": "coding",
       "image": ""
-    },
-    {
-      "id": "worksync",
-      "title": {
-        "en": "Worksync",
-        "th": "เวิร์คซิงค์ (Worksync)"
-      },
-      "description": {
-        "en": "A group innovation project from Grade 10 to 12: an app that acts as a marketplace between sellers and buyers. Tested with 15 Grade 12 students: platform performance averaged 3.0–3.7 (moderate) and satisfaction was 73/100 (good).",
-        "th": "โครงงานนวัตกรรมกลุ่มตั้งแต่ ม.4 ถึง ม.6 แอปพลิเคชันที่เป็นตัวกลางให้ผู้ขายนำเสนอสินค้า และผู้ซื้อค้นหา เปรียบเทียบราคา และดูรายละเอียดสินค้าได้ในที่เดียว ทดสอบกับนักเรียน ม.6 จำนวน 15 คน ได้คะแนนประสิทธิภาพเฉลี่ย 3.0–3.7 (ระดับปานกลาง) และความพึงพอใจ 73/100 (ระดับดี)"
-      },
-      "date": "",
-      "role": {
-        "en": "Group member",
-        "th": "สมาชิกกลุ่ม"
-      },
-      "techStack": ["Visual Basic", "MySQL", "JavaScript", "Python"],
-      "links": {
-        "github": "",
-        "demo": "",
-        "report": ""
-      },
-      "category": "coding",
-      "image": ""
     }
   ]
 }
