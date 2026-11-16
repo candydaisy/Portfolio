@@ -39,6 +39,7 @@ function AsciiRule({ label }: { label?: string }) {
 export default function Portfolio({ contact, projects, profile }: PortfolioProps) {
   const { lang, setLang } = useLanguage();
   const ui = profile.ui;
+  const navKeys = NAV_KEYS.filter((key) => key !== "awards" || profile.awards.length > 0);
   const [year, setYear] = useState<number | null>(null);
 
   useEffect(() => {
@@ -52,7 +53,7 @@ export default function Portfolio({ contact, projects, profile }: PortfolioProps
           {t(contact.name, lang)}
         </a>
         <nav className="nav" aria-label="Primary">
-          {NAV_KEYS.map((key) => (
+          {navKeys.map((key) => (
             <a key={key} href={`#${key}`}>
               {t(ui.nav[key], lang)}
             </a>
@@ -105,10 +106,12 @@ export default function Portfolio({ contact, projects, profile }: PortfolioProps
                   <span className="meta">{t(edu.years, lang)}</span>
                 </div>
                 <p>{t(edu.program, lang)}</p>
-                <p>
-                  {t(ui.labels.gpa, lang)}: <span className="accent">{edu.gpa}</span>
-                </p>
-                <p className="muted">{t(edu.highlights, lang)}</p>
+                {edu.gpa && (
+                  <p>
+                    {t(ui.labels.gpa, lang)}: <span className="accent">{edu.gpa}</span>
+                  </p>
+                )}
+                {t(edu.highlights, lang) && <p className="muted">{t(edu.highlights, lang)}</p>}
               </li>
             ))}
           </ul>
@@ -135,8 +138,12 @@ export default function Portfolio({ contact, projects, profile }: PortfolioProps
                     <span className="meta">{project.date}</span>
                   </div>
                   <p className="project-cat">
-                    [{t(categoryLabel, lang)}] · {t(ui.labels.role, lang)}:{" "}
-                    {t(project.role, lang)}
+                    [{t(categoryLabel, lang)}]
+                    {t(project.role, lang) && (
+                      <>
+                        {" "}· {t(ui.labels.role, lang)}: {t(project.role, lang)}
+                      </>
+                    )}
                   </p>
                   <p className="prose">{t(project.description, lang)}</p>
                   <p className="stack-line">
@@ -174,6 +181,7 @@ export default function Portfolio({ contact, projects, profile }: PortfolioProps
           </ul>
         </section>
 
+        {profile.awards.length > 0 && (
         <section id="awards" className="section">
           <AsciiRule label={t(ui.sections.awards, lang).toUpperCase()} />
           <h2>{t(ui.sections.awards, lang)}</h2>
@@ -189,6 +197,7 @@ export default function Portfolio({ contact, projects, profile }: PortfolioProps
             ))}
           </ul>
         </section>
+        )}
 
         <section id="extracurriculars" className="section">
           <AsciiRule label={t(ui.sections.extracurriculars, lang).toUpperCase()} />
@@ -200,10 +209,12 @@ export default function Portfolio({ contact, projects, profile }: PortfolioProps
                   <strong>{t(item.name, lang)}</strong>
                   <span className="meta">{item.years}</span>
                 </div>
-                <p>
-                  {t(ui.labels.role, lang)}: {t(item.role, lang)}
-                </p>
-                <p className="muted">{t(item.detail, lang)}</p>
+                {t(item.role, lang) && (
+                  <p>
+                    {t(ui.labels.role, lang)}: {t(item.role, lang)}
+                  </p>
+                )}
+                {t(item.detail, lang) && <p className="muted">{t(item.detail, lang)}</p>}
               </li>
             ))}
           </ul>
@@ -213,6 +224,7 @@ export default function Portfolio({ contact, projects, profile }: PortfolioProps
           <AsciiRule label={t(ui.sections.contact, lang).toUpperCase()} />
           <h2>{t(ui.sections.contact, lang)}</h2>
           <dl className="contact-grid">
+            {contact.telephone && (
             <div>
               <dt>{t(ui.labels.phone, lang)}</dt>
               <dd>
@@ -221,12 +233,17 @@ export default function Portfolio({ contact, projects, profile }: PortfolioProps
                 </a>
               </dd>
             </div>
+            )}
+            {contact.email && (
             <div>
               <dt>{t(ui.labels.email, lang)}</dt>
               <dd>
                 <a href={`mailto:${contact.email}`}>{contact.email}</a>
               </dd>
             </div>
+            )}
+            {contact.dateOfBirth && (
+            <>
             <div>
               <dt>{t(ui.labels.dob, lang)}</dt>
               <dd>{contact.dateOfBirth}</dd>
@@ -241,6 +258,8 @@ export default function Portfolio({ contact, projects, profile }: PortfolioProps
                 />
               </dd>
             </div>
+            </>
+            )}
             <div>
               <dt>{t(ui.labels.location, lang)}</dt>
               <dd>{t(contact.location, lang)}</dd>
@@ -263,7 +282,6 @@ export default function Portfolio({ contact, projects, profile }: PortfolioProps
               </a>
             )}
           </p>
-          <p className="edit-hint">{t(ui.labels.editHint, lang)}</p>
         </section>
       </main>
 

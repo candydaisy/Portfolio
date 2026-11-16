@@ -1,99 +1,171 @@
 {
   "projects": [
     {
-      "id": "science-fair-water",
+      "id": "untitled-illness",
       "title": {
-        "en": "Low-Cost Water Quality Sensor",
-        "th": "เซ็นเซอร์วัดคุณภาพน้ำราคาประหยัด"
+        "en": "Untitled Illness",
+        "th": "Untitled Illness"
       },
       "description": {
-        "en": "Built an Arduino-based sensor that measures pH and turbidity for a school science fair. Presented findings to teachers and local community members.",
-        "th": "สร้างเซ็นเซอร์บน Arduino สำหรับวัดค่า pH และความขุ่นของน้ำในงานวิทยาศาสตร์โรงเรียน นำเสนอผลต่อครูและชุมชน"
+        "en": "A Godot 4 visual novel about student mental health, told through several characters' perspectives. It aims to build empathy through quiet understanding and meaningful choices rather than win/lose gameplay. Built as my IS (independent study) project, with an accompanying research paper.",
+        "th": "เกมวิชวลโนเวลที่สร้างด้วย Godot 4 ในวิชาการศึกษาค้นคว้าด้วยตนเอง (IS) พร้อมรายงานวิจัยประกอบ เล่าเรื่องสุขภาพจิตของนักเรียนผ่านมุมมองของตัวละครหลายคน มุ่งสร้างความเข้าอกเข้าใจผ่านการทำความเข้าใจอย่างเงียบ ๆ และทางเลือกที่มีความหมาย แทนการเล่นแบบแพ้ชนะ"
       },
-      "date": "2025-08",
+      "date": "",
       "role": {
-        "en": "Team Lead & Hardware",
-        "th": "หัวหน้าทีมและฮาร์ดแวร์"
+        "en": "Systems developer, co-developed with a friend who wrote Kay and Elysia's story. Built the JSON-driven dialog manager, emotional weight system, choice locking, dialog rewind and layered audio.",
+        "th": "ผู้พัฒนาฝั่งระบบ (ทำร่วมกับเพื่อนที่เขียนเนื้อเรื่องของ Kay และ Elysia) สร้างตัวจัดการบทสนทนาที่ขับเคลื่อนด้วย JSON ระบบน้ำหนักอารมณ์ การล็อกตัวเลือก การย้อนบทสนทนา และระบบเสียงแบบหลายชั้น"
       },
-      "techStack": ["Arduino", "C++", "Sensors", "Data Analysis"],
+      "techStack": ["Godot 4", "GDScript", "JSON", "ElevenLabs API", "GPT Image / Nano Banana (art)", "Claude Code"],
       "links": {
-        "github": "https://github.com/your-username/water-sensor",
-        "demo": "",
-        "report": ""
-      },
-      "category": "research",
-      "image": ""
-    },
-    {
-      "id": "club-website",
-      "title": {
-        "en": "School Club Website",
-        "th": "เว็บไซต์ชมรมโรงเรียน"
-      },
-      "description": {
-        "en": "Designed and coded a bilingual club site so members can see events, join forms, and past activities in one place.",
-        "th": "ออกแบบและเขียนเว็บไซต์ชมรมสองภาษา ให้สมาชิกดูกิจกรรม แบบฟอร์มสมัคร และผลงานเก่าได้ในที่เดียว"
-      },
-      "date": "2025-02",
-      "role": {
-        "en": "Full-stack Developer",
-        "th": "นักพัฒนา Full-stack"
-      },
-      "techStack": ["HTML", "CSS", "JavaScript", "Firebase"],
-      "links": {
-        "github": "https://github.com/your-username/club-site",
-        "demo": "https://example.com",
+        "github": "https://github.com/candydaisy/UntitledIllness",
+        "demo": "https://candyest.itch.io/untitled-illness",
         "report": ""
       },
       "category": "coding",
       "image": ""
     },
     {
-      "id": "volunteer-tutoring",
+      "id": "ttfui",
       "title": {
-        "en": "Peer Tutoring Program",
-        "th": "โครงการติวเตอร์เพื่อนช่วยเพื่อน"
+        "en": "TTFUI (visual story editor)",
+        "th": "TTFUI (เครื่องมือเขียนเนื้อเรื่องแบบภาพ)"
       },
       "description": {
-        "en": "Organized weekly math tutoring for M.4 students. Created worksheets and tracked improvement over one semester.",
-        "th": "จัดติวคณิตศาสตร์รายสัปดาห์ให้ ม.4 จัดทำใบงานและติดตามผลการเรียนตลอดหนึ่งภาคเรียน"
+        "en": "A browser-based flow-graph editor I built so my non-programmer teammate could write Untitled Illness dialogue without editing JSON by hand. Features cursor-locked zoom, flag-tracking connection lines, longest-path auto-layout, saving via the File System Access API, and URL-encoded sharing.",
+        "th": "เครื่องมือแก้ไขผังเนื้อเรื่องบนเบราว์เซอร์ที่สร้างขึ้นเพื่อให้เพื่อนร่วมทีมที่ไม่ได้เขียนโปรแกรม เขียนบทสนทนาของ Untitled Illness ได้โดยไม่ต้องแก้ไฟล์ JSON เอง มีการซูมตามตำแหน่งเคอร์เซอร์ เส้นเชื่อมที่ติดตามเงื่อนไข (flag) การจัดเลย์เอาต์อัตโนมัติแบบ longest-path การบันทึกผ่าน File System Access API และการแชร์ผ่าน URL"
       },
-      "date": "2024-11",
+      "date": "",
       "role": {
-        "en": "Coordinator & Tutor",
-        "th": "ผู้ประสานงานและติวเตอร์"
+        "en": "Sole developer",
+        "th": "ผู้พัฒนาคนเดียว"
       },
-      "techStack": ["Teaching", "Worksheet Design", "Google Forms"],
+      "techStack": ["HTML", "JavaScript", "File System Access API"],
       "links": {
-        "github": "",
-        "demo": "",
+        "github": "https://github.com/candydaisy/TTFUI",
+        "demo": "https://candydaisy.github.io/TTFUI/",
         "report": ""
       },
-      "category": "volunteer",
+      "category": "coding",
       "image": ""
     },
     {
-      "id": "debate-club",
+      "id": "fastmath-solver",
       "title": {
-        "en": "Inter-school Debate Showcase",
-        "th": "การแข่งขันโต้วาทีระหว่างโรงเรียน"
+        "en": "FastMath Solver",
+        "th": "FastMath Solver"
       },
       "description": {
-        "en": "Researched policy topics, wrote speeches, and competed in an English debate tournament representing the school.",
-        "th": "ค้นคว้าหัวข้อเชิงนโยบาย เขียนสุนทรพจน์ และแข่งขันโต้วาทีภาษาอังกฤษในนามโรงเรียน"
+        "en": "A Python solver for fast-math number puzzles. It does a recursive brute-force search over +, -, ×, ÷ and powers, with square roots, factorials and sigma expansions, plus memoization and a 6-second timeout, and falls back to the closest result within ±5. I refactored it from one tangled solver/OCR/GUI file into a standalone CLI and a Flask web app with three modes.",
+        "th": "โปรแกรม Python สำหรับแก้โจทย์เกมคิดเลขเร็ว รับชุดตัวเลขและเลขเป้าหมาย แล้วค้นหาสมการที่ใช้ตัวเลขทุกตัวให้ได้ผลตรงเป้า ด้วยการค้นหาแบบ brute-force เชิงเรียกซ้ำ ครอบคลุม +, -, ×, ÷, ยกกำลัง, รากที่สอง, แฟกทอเรียล และซิกมา มีการจำผลลัพธ์ (memoization) และจำกัดเวลา 6 วินาที หากไม่พบคำตอบตรงจะให้ผลที่ใกล้ที่สุดภายใน ±5 ปรับโครงสร้างจากไฟล์เดียวที่รวมตัวแก้โจทย์/OCR/GUI ไว้ด้วยกัน เป็น CLI แยกและเว็บแอป Flask ที่มีสามโหมด"
       },
-      "date": "2024-06",
+      "date": "",
       "role": {
-        "en": "First Speaker",
-        "th": "วิทยากรคนที่หนึ่ง"
+        "en": "Sole developer",
+        "th": "ผู้พัฒนาคนเดียว"
       },
-      "techStack": ["Public Speaking", "Research", "English"],
+      "techStack": ["Python", "Flask", "Vercel"],
+      "links": {
+        "github": "https://github.com/candydaisy/fastmath-solver",
+        "demo": "https://fastmath-solver.vercel.app/",
+        "report": ""
+      },
+      "category": "coding",
+      "image": ""
+    },
+    {
+      "id": "sentinelx",
+      "title": {
+        "en": "Project SentinelX",
+        "th": "Project SentinelX"
+      },
+      "description": {
+        "en": "Raspberry Pi 4B units mounted on CNC machines that send uptime, production rate and working status to the cloud, with an API for customers. I prepared the Pi images, set up about 7 units and stress-tested them.",
+        "th": "ระบบติดตามเครื่องจักร CNC ด้วย Raspberry Pi 4B ที่ติดตั้งบนเครื่องจักร ส่งข้อมูลเวลาทำงาน อัตราการผลิต และสถานะการทำงานขึ้นคลาวด์ พร้อม API สำหรับลูกค้า ฉันเตรียมอิมเมจของ Pi ติดตั้งประมาณ 7 เครื่อง และทดสอบภายใต้โหลดสูง (stress test)"
+      },
+      "date": "2026-10",
+      "role": {
+        "en": "Trainee developer (main focus of my work at NKE)",
+        "th": "นักศึกษาฝึกงานฝ่ายพัฒนา (งานหลักที่ NKE)"
+      },
+      "techStack": ["Raspberry Pi 4B"],
+      "links": {
+        "github": "",
+        "demo": "https://demo.nke-it.com",
+        "report": ""
+      },
+      "category": "internship",
+      "image": ""
+    },
+    {
+      "id": "nke-hr-ai",
+      "title": {
+        "en": "NKE HR AI assistant",
+        "th": "ผู้ช่วย AI ด้าน HR ของ NKE"
+      },
+      "description": {
+        "en": "A locally run AI assistant that answers employees' HR questions. It reads HR files from the company server, excluding pay amounts.",
+        "th": "ผู้ช่วย AI ที่ทำงานภายในองค์กร (local) สำหรับตอบคำถามด้าน HR ของพนักงาน โดยอ่านไฟล์ HR จากเซิร์ฟเวอร์ของบริษัท ยกเว้นข้อมูลเงินเดือน"
+      },
+      "date": "2026-10",
+      "role": {
+        "en": "",
+        "th": ""
+      },
+      "techStack": ["Qwen (local LLM)"],
       "links": {
         "github": "",
         "demo": "",
         "report": ""
       },
-      "category": "club",
+      "category": "internship",
+      "image": ""
+    },
+    {
+      "id": "gyrolingo",
+      "title": {
+        "en": "GyroLingo",
+        "th": "GyroLingo"
+      },
+      "description": {
+        "en": "An iOS vocabulary game for students facing English exams with weak vocabulary who dislike reading. Players answer by tilting the phone (gyroscope), and words are reviewed with a spaced-repetition algorithm. Built for a hackathon in Chiang Mai.",
+        "th": "เกมฝึกคำศัพท์บน iOS สำหรับนักเรียนที่ต้องสอบภาษาอังกฤษแต่คลังคำศัพท์น้อยและไม่ชอบอ่าน ผู้เล่นตอบโดยการเอียงโทรศัพท์ (ไจโรสโคป) และทบทวนคำศัพท์ด้วยอัลกอริทึมการทบทวนแบบเว้นระยะ (spaced repetition) พัฒนาในงานแฮกกาธอนที่เชียงใหม่"
+      },
+      "date": "2026",
+      "role": {
+        "en": "Team member",
+        "th": "สมาชิกทีม"
+      },
+      "techStack": ["iOS", "Swift / SwiftUI"],
+      "links": {
+        "github": "",
+        "demo": "",
+        "report": ""
+      },
+      "category": "coding",
+      "image": ""
+    },
+    {
+      "id": "worksync",
+      "title": {
+        "en": "Worksync",
+        "th": "เวิร์คซิงค์ (Worksync)"
+      },
+      "description": {
+        "en": "A group innovation project from Grade 10 to 12: an app that acts as a marketplace between sellers and buyers. Tested with 15 Grade 12 students: platform performance averaged 3.0–3.7 (moderate) and satisfaction was 73/100 (good).",
+        "th": "โครงงานนวัตกรรมกลุ่มตั้งแต่ ม.4 ถึง ม.6 แอปพลิเคชันที่เป็นตัวกลางให้ผู้ขายนำเสนอสินค้า และผู้ซื้อค้นหา เปรียบเทียบราคา และดูรายละเอียดสินค้าได้ในที่เดียว ทดสอบกับนักเรียน ม.6 จำนวน 15 คน ได้คะแนนประสิทธิภาพเฉลี่ย 3.0–3.7 (ระดับปานกลาง) และความพึงพอใจ 73/100 (ระดับดี)"
+      },
+      "date": "",
+      "role": {
+        "en": "Group member",
+        "th": "สมาชิกกลุ่ม"
+      },
+      "techStack": ["Visual Basic", "MySQL", "JavaScript", "Python"],
+      "links": {
+        "github": "",
+        "demo": "",
+        "report": ""
+      },
+      "category": "coding",
       "image": ""
     }
   ]

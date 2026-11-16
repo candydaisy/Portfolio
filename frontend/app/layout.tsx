@@ -16,9 +16,9 @@ const noto = Noto_Sans_Thai({
 });
 
 export const metadata: Metadata = {
-  title: "M.6 Portfolio Template",
+  title: "Krittikun Wongnin — Portfolio",
   description:
-    "Bilingual ASCII-art portfolio template for M.6 students applying to universities.",
+    "Portfolio of Krittikun Wongnin, M.6 Digital Science student at Assumption College Rayong.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

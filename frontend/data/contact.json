@@ -1,18 +1,18 @@
 {
   "name": {
-    "en": "Your Full Name",
-    "th": "ชื่อ-นามสกุล ของคุณ"
+    "en": "Krittikun Wongnin",
+    "th": "กฤษฎ์ติกุณ วงษ์นิล"
   },
-  "telephone": "+66-8X-XXX-XXXX",
-  "email": "your.email@example.com",
-  "dateOfBirth": "2008-06-15",
+  "telephone": "",
+  "email": "",
+  "dateOfBirth": "",
   "location": {
-    "en": "Bangkok, Thailand",
-    "th": "กรุงเทพมหานคร ประเทศไทย"
+    "en": "Thailand",
+    "th": "ประเทศไทย"
   },
   "socials": {
-    "github": "https://github.com/your-username",
-    "linkedin": "https://linkedin.com/in/your-profile",
+    "github": "https://github.com/candydaisy",
+    "linkedin": "",
     "portfolio": ""
   }
 }

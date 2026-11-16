@@ -1,163 +1,354 @@
 {
   "tagline": {
-    "en": "M.6 student building toward university — curious, steady, and ready to grow.",
-    "th": "นักเรียน ม.6 ที่เตรียมสมัครมหาวิทยาลัย — ใฝ่รู้ มั่นคง และพร้อมเติบโต"
+    "en": "M.6 Digital Science student. I build games, developer tools and IoT systems.",
+    "th": "นักเรียน ม.6 แผนการเรียนวิทยาศาสตร์ดิจิทัล ชอบสร้างเกม เครื่องมือสำหรับนักพัฒนา และระบบ IoT"
   },
   "about": {
-    "en": "I am an M.6 student preparing university applications. I care about clear thinking, useful projects, and learning with other people. This portfolio collects school work, clubs, and community projects so admissions readers can see how I grow.",
-    "th": "ฉันเป็นนักเรียน ม.6 ที่กำลังเตรียมสมัครมหาวิทยาลัย สนใจการคิดอย่างเป็นระบบ โปรเจกต์ที่ใช้ได้จริง และการเรียนรู้ร่วมกับผู้อื่น พอร์ตโฟลิโอนี้รวบรวมงานโรงเรียน ชมรม และกิจกรรมชุมชน เพื่อให้คณะกรรมการรับสมัครเห็นการเติบโตของฉัน"
+    "en": "I'm an M.6 student in the Digital Science program at Assumption College Rayong. I like building things people actually use: a visual novel about student mental health, a story editor so my non-programmer teammate could write dialogue, and a solver for fast-math puzzles. Since October 2026 I have been a paid IoT trainee at Nipon Kikai Engineering, alternating work weeks with school weeks, where I set up Raspberry Pi units that monitor CNC machines. A pneumatics camp at SMC Thailand changed how I see hardware, and I now enjoy working where software meets real machines.",
+    "th": "ฉันเป็นนักเรียน ม.6 แผนการเรียนวิทยาศาสตร์ดิจิทัล โรงเรียนอัสสัมชัญระยอง ชอบสร้างสิ่งที่คนใช้ได้จริง เช่น เกมวิชวลโนเวลเกี่ยวกับสุขภาพจิตของนักเรียน เครื่องมือเขียนเนื้อเรื่องที่ทำให้เพื่อนร่วมทีมที่ไม่ได้เขียนโปรแกรมเขียนบทสนทนาได้ และโปรแกรมแก้โจทย์คิดเลขเร็ว ตั้งแต่เดือนตุลาคม 2569 ฉันเป็นนักศึกษาฝึกงานแบบได้รับค่าตอบแทนในฝ่าย IoT ของบริษัท Nipon Kikai Engineering โดยสลับทำงานหนึ่งสัปดาห์กับเรียนหนึ่งสัปดาห์ และติดตั้ง Raspberry Pi สำหรับติดตามการทำงานของเครื่องจักร CNC ค่ายระบบนิวแมติกส์ของ SMC Thailand เปลี่ยนมุมมองของฉันต่องานฮาร์ดแวร์ และตอนนี้ฉันสนุกกับงานที่ซอฟต์แวร์ทำงานร่วมกับเครื่องจักรจริง"
   },
   "education": [
     {
       "school": {
-        "en": "Your Secondary School Name",
-        "th": "ชื่อโรงเรียนมัธยมของคุณ"
+        "en": "Assumption College Rayong",
+        "th": "โรงเรียนอัสสัมชัญระยอง"
       },
       "program": {
-        "en": "Math-Science / Arts-Math (edit me)",
-        "th": "วิทย์-คณิต / ศิลป์-คำนวณ (แก้ไขได้)"
+        "en": "Digital Science program",
+        "th": "แผนการเรียนวิทยาศาสตร์ดิจิทัล"
       },
       "years": {
-        "en": "2021 — 2027",
-        "th": "2564 — 2570"
+        "en": "Grade 10–12 (currently Grade 12)",
+        "th": "ม.4–ม.6 (ปัจจุบัน ม.6)"
       },
-      "gpa": "3.XX / 4.00",
+      "gpa": "",
       "highlights": {
-        "en": "Homeroom representative · Science fair finalist · English debate team",
-        "th": "หัวหน้าห้อง · ผ่านเข้ารอบสุดท้ายงานวิทย์ · ทีมโต้วาทีภาษาอังกฤษ"
+        "en": "",
+        "th": ""
       }
     }
   ],
   "skills": [
     {
-      "group": { "en": "Academic", "th": "วิชาการ" },
-      "items": ["Mathematics", "Physics", "English", "Research writing"]
+      "group": {
+        "en": "Programming languages",
+        "th": "ภาษาโปรแกรม"
+      },
+      "items": [
+        "Python",
+        "GDScript",
+        "JavaScript",
+        "HTML",
+        "Visual Basic",
+        "SQL (MySQL)",
+        "Swift / SwiftUI"
+      ]
     },
     {
-      "group": { "en": "Technical", "th": "ทักษะเทคนิค" },
-      "items": ["Python", "HTML/CSS", "Arduino", "Git"]
+      "group": {
+        "en": "Frameworks, engines & platforms",
+        "th": "เฟรมเวิร์ก เอนจิน และแพลตฟอร์ม"
+      },
+      "items": [
+        "Godot 4",
+        "Flask",
+        "Vercel",
+        "Raspberry Pi 4B",
+        "ElevenLabs API"
+      ]
     },
     {
-      "group": { "en": "Soft skills", "th": "ทักษะทั่วไป" },
-      "items": ["Teamwork", "Public speaking", "Time management", "Leadership"]
+      "group": {
+        "en": "Hardware",
+        "th": "ฮาร์ดแวร์"
+      },
+      "items": [
+        "Pneumatic control systems (SMC camp)",
+        "Soldering"
+      ]
+    },
+    {
+      "group": {
+        "en": "Tools",
+        "th": "เครื่องมือ"
+      },
+      "items": [
+        "VS Code",
+        "Git / GitHub",
+        "Claude Code"
+      ]
     }
   ],
-  "awards": [
-    {
-      "title": {
-        "en": "School Science Fair — 2nd Place",
-        "th": "งานวิทยาศาสตร์โรงเรียน — รางวัลที่ 2"
-      },
-      "year": "2025",
-      "detail": {
-        "en": "Water quality sensor project with Arduino.",
-        "th": "โปรเจกต์เซ็นเซอร์คุณภาพน้ำด้วย Arduino"
-      }
-    },
-    {
-      "title": {
-        "en": "English Debate Certificate of Merit",
-        "th": "เกียรติบัตรโต้วาทีภาษาอังกฤษ"
-      },
-      "year": "2024",
-      "detail": {
-        "en": "Inter-school tournament, first speaker.",
-        "th": "การแข่งขันระหว่างโรงเรียน ตำแหน่งวิทยากรคนที่หนึ่ง"
-      }
-    }
-  ],
+  "awards": [],
   "extracurriculars": [
     {
       "name": {
-        "en": "Robotics / Coding Club",
-        "th": "ชมรมหุ่นยนต์ / เขียนโปรแกรม"
+        "en": "IoT traineeship, Nipon Kikai Engineering Co. (NKE)",
+        "th": "ฝึกงานฝ่าย IoT บริษัท Nipon Kikai Engineering (NKE)"
       },
       "role": {
-        "en": "Member",
-        "th": "สมาชิก"
+        "en": "Paid trainee, IoT section",
+        "th": "นักศึกษาฝึกงาน (ได้รับค่าตอบแทน) ฝ่าย IoT"
       },
-      "years": "2023 — present",
+      "years": "2026 — present",
       "detail": {
-        "en": "Weekly builds, contests, and peer workshops.",
-        "th": "สร้างโปรเจกต์รายสัปดาห์ แข่งขันทักษะ และเวิร์กช็อปเพื่อนช่วยเพื่อน"
+        "en": "Started 5 October 2026. I alternate one full-time week at NKE with one week at school. Supervised by the head of the IoT section and the owner/manager. Work includes SentinelX, an HR AI, and reworking a customer website.",
+        "th": "เริ่มงานวันที่ 5 ตุลาคม 2569 สลับทำงานเต็มเวลาที่ NKE หนึ่งสัปดาห์กับเรียนที่โรงเรียนหนึ่งสัปดาห์ อยู่ภายใต้การดูแลของหัวหน้าฝ่าย IoT และเจ้าของ/ผู้จัดการบริษัท งานที่ทำ ได้แก่ SentinelX ระบบ AI ด้าน HR และการปรับปรุงเว็บไซต์ของลูกค้า"
       }
     },
     {
       "name": {
-        "en": "Student Council / Homeroom",
-        "th": "สภานักเรียน / หัวหน้าห้อง"
+        "en": "SMC (Thailand) Pneumatics Control System camp",
+        "th": "ค่ายระบบควบคุมนิวแมติกส์ของ SMC (Thailand)"
       },
       "role": {
-        "en": "Class representative",
-        "th": "ตัวแทนห้อง"
+        "en": "Participant; presented my group's design",
+        "th": "ผู้เข้าร่วม และนำเสนอผลงานออกแบบของกลุ่ม"
       },
-      "years": "2024 — 2025",
+      "years": "2025",
       "detail": {
-        "en": "Coordinated class activities and communicated with teachers.",
-        "th": "ประสานกิจกรรมห้องเรียนและสื่อสารกับครู"
+        "en": "Three-day camp in December 2025. Presented our group's semi-automatic som tam machine idea, which was praised for creativity. The camp changed my attitude to hardware work.",
+        "th": "ค่ายสามวันในเดือนธันวาคม 2568 นำเสนอไอเดียเครื่องตำส้มตำกึ่งอัตโนมัติที่ออกแบบร่วมกับเพื่อนในกลุ่ม และได้รับคำชมด้านความคิดสร้างสรรค์ ค่ายนี้เปลี่ยนทัศนคติของฉันต่องานฮาร์ดแวร์"
       }
     },
     {
       "name": {
-        "en": "Community Service",
+        "en": "Industry workshops and study visits",
+        "th": "อบรมและศึกษาดูงานภาคอุตสาหกรรม"
+      },
+      "role": {
+        "en": "Participant",
+        "th": "ผู้เข้าร่วม"
+      },
+      "years": "",
+      "detail": {
+        "en": "SMC Thailand, Delta Electronics, and EEC Automation Park (Burapha University).",
+        "th": "อบรมและดูงานกับ SMC Thailand, Delta Electronics และ EEC Automation Park มหาวิทยาลัยบูรพา"
+      }
+    },
+    {
+      "name": {
+        "en": "ICT Challenge 2026 (SIT, KMUTT)",
+        "th": "ICT Challenge 2026 (SIT มจธ.)"
+      },
+      "role": {
+        "en": "Competitor",
+        "th": "ผู้เข้าแข่งขัน"
+      },
+      "years": "2026",
+      "detail": {
+        "en": "Competed in the on-site rounds in November 2026.",
+        "th": "เข้าแข่งขันรอบ on-site เดือนพฤศจิกายน 2569"
+      }
+    },
+    {
+      "name": {
+        "en": "Hackathon in Chiang Mai",
+        "th": "แฮกกาธอนที่เชียงใหม่"
+      },
+      "role": {
+        "en": "Team member (GyroLingo)",
+        "th": "สมาชิกทีม (GyroLingo)"
+      },
+      "years": "2026",
+      "detail": {
+        "en": "Built GyroLingo, a tilt-controlled iOS vocabulary game, with my team.",
+        "th": "พัฒนา GyroLingo เกมฝึกคำศัพท์บน iOS ที่ควบคุมด้วยการเอียงโทรศัพท์ ร่วมกับทีม"
+      }
+    },
+    {
+      "name": {
+        "en": "Young iOS Developer Program",
+        "th": "Young iOS Developer Program"
+      },
+      "role": {
+        "en": "Participant",
+        "th": "ผู้เข้าร่วม"
+      },
+      "years": "",
+      "detail": {
+        "en": "",
+        "th": ""
+      }
+    },
+    {
+      "name": {
+        "en": "Community volunteering",
         "th": "จิตอาสา"
       },
       "role": {
         "en": "Volunteer",
         "th": "อาสาสมัคร"
       },
-      "years": "2024",
+      "years": "",
       "detail": {
-        "en": "Weekend tutoring and local clean-up events.",
-        "th": "ติวเสาร์-อาทิตย์และกิจกรรมเก็บขยะในชุมชน"
+        "en": "Community cleanup at a religious site. Blood donation.",
+        "th": "ทำความสะอาดศาสนสถานในชุมชน และบริจาคโลหิต"
+      }
+    },
+    {
+      "name": {
+        "en": "Territorial Defense Student (ROTC) training",
+        "th": "ฝึกนักศึกษาวิชาทหาร (รด.)"
+      },
+      "role": {
+        "en": "",
+        "th": ""
+      },
+      "years": "",
+      "detail": {
+        "en": "",
+        "th": ""
+      }
+    },
+    {
+      "name": {
+        "en": "School sports day (Green House)",
+        "th": "กีฬาสีโรงเรียน (คณะสีเขียว)"
+      },
+      "role": {
+        "en": "",
+        "th": ""
+      },
+      "years": "",
+      "detail": {
+        "en": "The Green House won the overall sports championship.",
+        "th": "คณะสีเขียวคว้ารางวัลชนะเลิศคะแนนรวมกีฬา"
       }
     }
   ],
   "ui": {
     "nav": {
-      "about": { "en": "About", "th": "เกี่ยวกับ" },
-      "education": { "en": "Education", "th": "การศึกษา" },
-      "projects": { "en": "Projects", "th": "ผลงาน" },
-      "skills": { "en": "Skills", "th": "ทักษะ" },
-      "awards": { "en": "Awards", "th": "รางวัล" },
-      "extracurriculars": { "en": "Activities", "th": "กิจกรรม" },
-      "contact": { "en": "Contact", "th": "ติดต่อ" }
+      "about": {
+        "en": "About",
+        "th": "เกี่ยวกับ"
+      },
+      "education": {
+        "en": "Education",
+        "th": "การศึกษา"
+      },
+      "projects": {
+        "en": "Projects",
+        "th": "ผลงาน"
+      },
+      "skills": {
+        "en": "Skills",
+        "th": "ทักษะ"
+      },
+      "awards": {
+        "en": "Awards",
+        "th": "รางวัล"
+      },
+      "extracurriculars": {
+        "en": "Activities",
+        "th": "กิจกรรม"
+      },
+      "contact": {
+        "en": "Contact",
+        "th": "ติดต่อ"
+      }
     },
     "heroCta": {
       "en": "View projects ↓",
       "th": "ดูผลงาน ↓"
     },
     "sections": {
-      "about": { "en": "About", "th": "เกี่ยวกับฉัน" },
-      "education": { "en": "Education", "th": "การศึกษา" },
-      "projects": { "en": "Projects & Work", "th": "ผลงานและโปรเจกต์" },
-      "skills": { "en": "Skills", "th": "ทักษะ" },
-      "awards": { "en": "Awards", "th": "รางวัลและความสำเร็จ" },
-      "extracurriculars": { "en": "Extracurriculars", "th": "กิจกรรมนอกหลักสูตร" },
-      "contact": { "en": "Contact", "th": "ติดต่อ" }
+      "about": {
+        "en": "About",
+        "th": "เกี่ยวกับฉัน"
+      },
+      "education": {
+        "en": "Education",
+        "th": "การศึกษา"
+      },
+      "projects": {
+        "en": "Projects & Work",
+        "th": "ผลงานและโปรเจกต์"
+      },
+      "skills": {
+        "en": "Skills",
+        "th": "ทักษะ"
+      },
+      "awards": {
+        "en": "Awards",
+        "th": "รางวัลและความสำเร็จ"
+      },
+      "extracurriculars": {
+        "en": "Extracurriculars",
+        "th": "กิจกรรมนอกหลักสูตร"
+      },
+      "contact": {
+        "en": "Contact",
+        "th": "ติดต่อ"
+      }
     },
     "labels": {
-      "age": { "en": "Age", "th": "อายุ" },
-      "years": { "en": "years", "th": "ปี" },
-      "dob": { "en": "Date of birth", "th": "วันเกิด" },
-      "phone": { "en": "Telephone", "th": "โทรศัพท์" },
-      "email": { "en": "Email", "th": "อีเมล" },
-      "location": { "en": "Location", "th": "ที่อยู่" },
-      "gpa": { "en": "GPA", "th": "เกรดเฉลี่ย" },
-      "role": { "en": "Role", "th": "บทบาท" },
-      "stack": { "en": "Stack", "th": "เครื่องมือ" },
-      "links": { "en": "Links", "th": "ลิงก์" },
-      "category": { "en": "Category", "th": "หมวด" },
-      "editHint": {
-        "en": "Edit data/*.json to personalize this template.",
-        "th": "แก้ไขไฟล์ data/*.json เพื่อปรับพอร์ตโฟลิโอนี้"
+      "age": {
+        "en": "Age",
+        "th": "อายุ"
+      },
+      "years": {
+        "en": "years",
+        "th": "ปี"
+      },
+      "dob": {
+        "en": "Date of birth",
+        "th": "วันเกิด"
+      },
+      "phone": {
+        "en": "Telephone",
+        "th": "โทรศัพท์"
+      },
+      "email": {
+        "en": "Email",
+        "th": "อีเมล"
+      },
+      "location": {
+        "en": "Location",
+        "th": "ที่อยู่"
+      },
+      "gpa": {
+        "en": "GPA",
+        "th": "เกรดเฉลี่ย"
+      },
+      "role": {
+        "en": "Role",
+        "th": "บทบาท"
+      },
+      "stack": {
+        "en": "Stack",
+        "th": "เครื่องมือ"
+      },
+      "links": {
+        "en": "Links",
+        "th": "ลิงก์"
+      },
+      "category": {
+        "en": "Category",
+        "th": "หมวด"
       }
     },
     "categories": {
-      "coding": { "en": "Coding", "th": "เขียนโปรแกรม" },
-      "research": { "en": "Research", "th": "วิจัย" },
-      "club": { "en": "Club", "th": "ชมรม" },
-      "volunteer": { "en": "Volunteer", "th": "อาสาสมัคร" }
+      "coding": {
+        "en": "Coding",
+        "th": "เขียนโปรแกรม"
+      },
+      "research": {
+        "en": "Research",
+        "th": "วิจัย"
+      },
+      "club": {
+        "en": "Club",
+        "th": "ชมรม"
+      },
+      "volunteer": {
+        "en": "Volunteer",
+        "th": "อาสาสมัคร"
+      },
+      "internship": {
+        "en": "Internship",
+        "th": "ฝึกงาน"
+      }
     }
   }
 }
