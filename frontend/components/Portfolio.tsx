@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import AgeDisplay from "@/components/AgeDisplay";
+import { AsciiBanner, AsciiBox } from "@/components/Ascii";
 import { useLanguage } from "@/components/LanguageProvider";
 import type { Contact, Profile, Project } from "@/lib/types";
 import { t } from "@/lib/types";
@@ -10,6 +11,7 @@ type PortfolioProps = {
   contact: Contact;
   projects: Project[];
   profile: Profile;
+  banner: string;
 };
 
 const NAV_KEYS = [
@@ -22,21 +24,21 @@ const NAV_KEYS = [
   "contact",
 ] as const;
 
-function AsciiRule({ label }: { label?: string }) {
-  if (!label) {
-    return <div className="ascii-rule" aria-hidden="true">{`+${"─".repeat(48)}+`}</div>;
-  }
-  const pad = Math.max(2, 46 - label.length);
-  const left = Math.floor(pad / 2);
-  const right = pad - left;
+const DOTS = ".".repeat(120);
+
+function KeyValue({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <div className="ascii-rule" aria-hidden="true">
-      {`+${"─".repeat(left)} ${label} ${"─".repeat(right)}+`}
+    <div className="kv">
+      <dt>{label}</dt>
+      <span className="kv-dots" aria-hidden="true">
+        {DOTS}
+      </span>
+      <dd>{children}</dd>
     </div>
   );
 }
 
-export default function Portfolio({ contact, projects, profile }: PortfolioProps) {
+export default function Portfolio({ contact, projects, profile, banner }: PortfolioProps) {
   const { lang, setLang } = useLanguage();
   const ui = profile.ui;
   const navKeys = NAV_KEYS.filter((key) => key !== "awards" || profile.awards.length > 0);
@@ -46,11 +48,16 @@ export default function Portfolio({ contact, projects, profile }: PortfolioProps
     setYear(new Date().getFullYear());
   }, []);
 
+  const label = (key: string) => t(ui.sections[key], lang).toUpperCase();
+
   return (
     <div className="portfolio">
       <header className="topbar">
         <a href="#top" className="brand-mark">
-          {t(contact.name, lang)}
+          <span className="prompt" aria-hidden="true">
+            ~/
+          </span>
+          {contact.socials.github ? contact.socials.github.split("/").pop() : "portfolio"}
         </a>
         <nav className="nav" aria-label="Primary">
           {navKeys.map((key) => (
@@ -60,47 +67,49 @@ export default function Portfolio({ contact, projects, profile }: PortfolioProps
           ))}
         </nav>
         <div className="lang-toggle" role="group" aria-label="Language">
+          <span aria-hidden="true">[</span>
           <button
             type="button"
             className={lang === "en" ? "active" : ""}
+            aria-pressed={lang === "en"}
             onClick={() => setLang("en")}
           >
             EN
           </button>
+          <span aria-hidden="true">|</span>
           <button
             type="button"
             className={lang === "th" ? "active" : ""}
+            aria-pressed={lang === "th"}
             onClick={() => setLang("th")}
           >
             TH
           </button>
+          <span aria-hidden="true">]</span>
         </div>
       </header>
 
       <main>
         <section id="top" className="hero">
-          <div className="hero-copy">
-            <p className="hero-kicker">M.6 · Portfolio</p>
-            <h1 className="hero-name">{t(contact.name, lang)}</h1>
-            <p className="hero-tagline">{t(profile.tagline, lang)}</p>
-            <a className="hero-cta" href="#projects">
-              {t(ui.heroCta, lang)}
-            </a>
-          </div>
+          <p className="term-line" aria-hidden="true">
+            <span className="prompt">$</span> whoami
+          </p>
+          <AsciiBanner art={banner} label={contact.name.en} />
+          <h1 className="hero-name">{t(contact.name, lang)}</h1>
+          <p className="hero-tagline">{t(profile.tagline, lang)}</p>
+          <a className="btn" href="#projects">
+            {t(ui.heroCta, lang)}
+          </a>
         </section>
 
-        <section id="about" className="section">
-          <AsciiRule label={t(ui.sections.about, lang).toUpperCase()} />
-          <h2>{t(ui.sections.about, lang)}</h2>
+        <AsciiBox id="about" title={label("about")}>
           <p className="prose">{t(profile.about, lang)}</p>
-        </section>
+        </AsciiBox>
 
-        <section id="education" className="section">
-          <AsciiRule label={t(ui.sections.education, lang).toUpperCase()} />
-          <h2>{t(ui.sections.education, lang)}</h2>
-          <ul className="stack-list">
+        <AsciiBox id="education" title={label("education")}>
+          <ul className="tree">
             {profile.education.map((edu) => (
-              <li key={t(edu.school, "en")} className="entry">
+              <li key={t(edu.school, "en")}>
                 <div className="entry-head">
                   <strong>{t(edu.school, lang)}</strong>
                   <span className="meta">{t(edu.years, lang)}</span>
@@ -115,12 +124,10 @@ export default function Portfolio({ contact, projects, profile }: PortfolioProps
               </li>
             ))}
           </ul>
-        </section>
+        </AsciiBox>
 
-        <section id="projects" className="section">
-          <AsciiRule label={t(ui.sections.projects, lang).toUpperCase()} />
-          <h2>{t(ui.sections.projects, lang)}</h2>
-          <ul className="project-list">
+        <AsciiBox id="projects" title={label("projects")}>
+          <div className="project-list">
             {projects.map((project) => {
               const categoryLabel =
                 ui.categories[project.category] ??
@@ -132,82 +139,90 @@ export default function Portfolio({ contact, projects, profile }: PortfolioProps
               ].filter(Boolean) as Array<{ href: string; label: string }>;
 
               return (
-                <li key={project.id} className="project-entry">
-                  <div className="entry-head">
-                    <strong>{t(project.title, lang)}</strong>
-                    <span className="meta">{project.date}</span>
-                  </div>
-                  <p className="project-cat">
-                    [{t(categoryLabel, lang)}]
-                    {t(project.role, lang) && (
-                      <>
-                        {" "}· {t(ui.labels.role, lang)}: {t(project.role, lang)}
-                      </>
-                    )}
-                  </p>
+                <AsciiBox
+                  key={project.id}
+                  as="article"
+                  level={3}
+                  className="project"
+                  title={t(project.title, lang)}
+                  meta={t(categoryLabel, lang).toLowerCase()}
+                >
+                  {(project.date || t(project.role, lang)) && (
+                    <p className="project-meta">
+                      {project.date && <span className="accent">{project.date}</span>}
+                      {project.date && t(project.role, lang) && " · "}
+                      {t(project.role, lang) && (
+                        <>
+                          {t(ui.labels.role, lang)}: {t(project.role, lang)}
+                        </>
+                      )}
+                    </p>
+                  )}
                   <p className="prose">{t(project.description, lang)}</p>
-                  <p className="stack-line">
-                    {t(ui.labels.stack, lang)}: {project.techStack.join(" · ")}
-                  </p>
+                  <ul className="tags" aria-label={t(ui.labels.stack, lang)}>
+                    {project.techStack.map((tech) => (
+                      <li key={tech}>{tech}</li>
+                    ))}
+                  </ul>
                   {links.length > 0 && (
                     <p className="project-links">
-                      {t(ui.labels.links, lang)}:{" "}
-                      {links.map((link, i) => (
-                        <span key={link.href}>
-                          {i > 0 && " · "}
-                          <a href={link.href} target="_blank" rel="noopener noreferrer">
-                            {link.label}
-                          </a>
-                        </span>
+                      {links.map((link) => (
+                        <a
+                          key={link.href}
+                          className="btn btn-small"
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {link.label} ↗
+                        </a>
                       ))}
                     </p>
                   )}
-                </li>
+                </AsciiBox>
               );
             })}
-          </ul>
-        </section>
+          </div>
+        </AsciiBox>
 
-        <section id="skills" className="section">
-          <AsciiRule label={t(ui.sections.skills, lang).toUpperCase()} />
-          <h2>{t(ui.sections.skills, lang)}</h2>
-          <ul className="skills-grid">
+        <AsciiBox id="skills" title={label("skills")}>
+          <ul className="tree">
             {profile.skills.map((group) => (
               <li key={t(group.group, "en")}>
                 <strong>{t(group.group, lang)}</strong>
-                <p>{group.items.join(" · ")}</p>
+                <ul className="tags">
+                  {group.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
               </li>
             ))}
           </ul>
-        </section>
+        </AsciiBox>
 
         {profile.awards.length > 0 && (
-        <section id="awards" className="section">
-          <AsciiRule label={t(ui.sections.awards, lang).toUpperCase()} />
-          <h2>{t(ui.sections.awards, lang)}</h2>
-          <ul className="stack-list">
-            {profile.awards.map((award) => (
-              <li key={t(award.title, "en")} className="entry">
-                <div className="entry-head">
-                  <strong>{t(award.title, lang)}</strong>
-                  <span className="meta">{award.year}</span>
-                </div>
-                <p className="muted">{t(award.detail, lang)}</p>
-              </li>
-            ))}
-          </ul>
-        </section>
+          <AsciiBox id="awards" title={label("awards")}>
+            <ul className="tree">
+              {profile.awards.map((award) => (
+                <li key={t(award.title, "en")}>
+                  <div className="entry-head">
+                    <strong>{t(award.title, lang)}</strong>
+                    <span className="meta">{award.year}</span>
+                  </div>
+                  <p className="muted">{t(award.detail, lang)}</p>
+                </li>
+              ))}
+            </ul>
+          </AsciiBox>
         )}
 
-        <section id="extracurriculars" className="section">
-          <AsciiRule label={t(ui.sections.extracurriculars, lang).toUpperCase()} />
-          <h2>{t(ui.sections.extracurriculars, lang)}</h2>
-          <ul className="stack-list">
+        <AsciiBox id="extracurriculars" title={label("extracurriculars")}>
+          <ul className="tree">
             {profile.extracurriculars.map((item) => (
-              <li key={t(item.name, "en")} className="entry">
+              <li key={t(item.name, "en")}>
                 <div className="entry-head">
                   <strong>{t(item.name, lang)}</strong>
-                  <span className="meta">{item.years}</span>
+                  {item.years && <span className="meta">{item.years}</span>}
                 </div>
                 {t(item.role, lang) && (
                   <p>
@@ -218,79 +233,66 @@ export default function Portfolio({ contact, projects, profile }: PortfolioProps
               </li>
             ))}
           </ul>
-        </section>
+        </AsciiBox>
 
-        <section id="contact" className="section contact-section">
-          <AsciiRule label={t(ui.sections.contact, lang).toUpperCase()} />
-          <h2>{t(ui.sections.contact, lang)}</h2>
-          <dl className="contact-grid">
+        <AsciiBox id="contact" title={label("contact")}>
+          <dl className="kv-list">
             {contact.telephone && (
-            <div>
-              <dt>{t(ui.labels.phone, lang)}</dt>
-              <dd>
-                <a href={`tel:${contact.telephone.replace(/\s+/g, "")}`}>
-                  {contact.telephone}
-                </a>
-              </dd>
-            </div>
+              <KeyValue label={t(ui.labels.phone, lang)}>
+                <a href={`tel:${contact.telephone.replace(/\s+/g, "")}`}>{contact.telephone}</a>
+              </KeyValue>
             )}
             {contact.email && (
-            <div>
-              <dt>{t(ui.labels.email, lang)}</dt>
-              <dd>
+              <KeyValue label={t(ui.labels.email, lang)}>
                 <a href={`mailto:${contact.email}`}>{contact.email}</a>
-              </dd>
-            </div>
+              </KeyValue>
             )}
             {contact.dateOfBirth && (
-            <>
-            <div>
-              <dt>{t(ui.labels.dob, lang)}</dt>
-              <dd>{contact.dateOfBirth}</dd>
-            </div>
-            <div>
-              <dt>{t(ui.labels.age, lang)}</dt>
-              <dd>
-                <AgeDisplay
-                  dateOfBirth={contact.dateOfBirth}
-                  lang={lang}
-                  yearsLabel={ui.labels.years}
-                />
-              </dd>
-            </div>
-            </>
+              <>
+                <KeyValue label={t(ui.labels.dob, lang)}>{contact.dateOfBirth}</KeyValue>
+                <KeyValue label={t(ui.labels.age, lang)}>
+                  <AgeDisplay
+                    dateOfBirth={contact.dateOfBirth}
+                    lang={lang}
+                    yearsLabel={ui.labels.years}
+                  />
+                </KeyValue>
+              </>
             )}
-            <div>
-              <dt>{t(ui.labels.location, lang)}</dt>
-              <dd>{t(contact.location, lang)}</dd>
-            </div>
-          </dl>
-          <p className="social-row">
+            <KeyValue label={t(ui.labels.location, lang)}>{t(contact.location, lang)}</KeyValue>
             {contact.socials.github && (
-              <a href={contact.socials.github} target="_blank" rel="noopener noreferrer">
-                GitHub
-              </a>
+              <KeyValue label="GitHub">
+                <a href={contact.socials.github} target="_blank" rel="noopener noreferrer">
+                  {contact.socials.github.replace(/^https?:\/\//, "")}
+                </a>
+              </KeyValue>
             )}
             {contact.socials.linkedin && (
-              <a href={contact.socials.linkedin} target="_blank" rel="noopener noreferrer">
-                LinkedIn
-              </a>
+              <KeyValue label="LinkedIn">
+                <a href={contact.socials.linkedin} target="_blank" rel="noopener noreferrer">
+                  {contact.socials.linkedin.replace(/^https?:\/\//, "")}
+                </a>
+              </KeyValue>
             )}
             {contact.socials.portfolio && (
-              <a href={contact.socials.portfolio} target="_blank" rel="noopener noreferrer">
-                Portfolio
-              </a>
+              <KeyValue label="Portfolio">
+                <a href={contact.socials.portfolio} target="_blank" rel="noopener noreferrer">
+                  {contact.socials.portfolio.replace(/^https?:\/\//, "")}
+                </a>
+              </KeyValue>
             )}
-          </p>
-        </section>
+          </dl>
+        </AsciiBox>
       </main>
 
       <footer className="site-footer">
-        <AsciiRule />
         <p>
-          © {year ?? "----"} {t(contact.name, lang)}
+          <span className="prompt" aria-hidden="true">
+            $
+          </span>{" "}
+          echo &quot;© {year ?? "----"} {t(contact.name, lang)}&quot;
           <span className="cursor" aria-hidden="true">
-            _
+            █
           </span>
         </p>
       </footer>

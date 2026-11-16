@@ -1,16 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #0c0c0c;
-  --fg: #cccccc;
-  --fg-bright: #ffffff;
-  --muted: #808080;
-  --dim: #666666;
-  --accent: #00ff00;
-  --line: #333333;
-  --panel: #111111;
+  color-scheme: dark;
+  --bg: #0b0d0b;
+  --panel: #101410;
+  --fg: #c9d1c9;
+  --fg-bright: #f2f5f2;
+  --muted: #8a948a;
+  --line: #3d4a3d;
+  --accent: #5fff87;
+  --accent-2: #ffd75f;
   --font-en: var(--font-jetbrains), "JetBrains Mono", monospace;
   --font-th: var(--font-noto), "Noto Sans Thai", sans-serif;
+  --mono-size: 0.9rem;
 }
 
 @theme inline {
@@ -26,6 +28,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem;
 }
 
 body {
@@ -33,17 +36,24 @@ body {
   min-height: 100%;
   color: var(--fg);
   font-family: var(--font-en);
+  font-size: var(--mono-size);
   background: var(--bg);
 }
 
-html[lang="th"] body,
+/* Thai text uses Noto; box-drawing art always stays in the mono font. */
 html[lang="th"] .prose,
-html[lang="th"] .hero-tagline,
 html[lang="th"] .hero-name,
-html[lang="th"] h2,
-html[lang="th"] .entry,
+html[lang="th"] .hero-tagline,
+html[lang="th"] .box-title,
+html[lang="th"] .box-meta,
+html[lang="th"] .box-body p,
+html[lang="th"] .box-body strong,
+html[lang="th"] .meta,
+html[lang="th"] .kv dt,
+html[lang="th"] .kv dd,
 html[lang="th"] .nav a,
-html[lang="th"] .brand-mark {
+html[lang="th"] .btn,
+html[lang="th"] .site-footer {
   font-family: var(--font-th);
 }
 
@@ -57,11 +67,22 @@ a:hover {
   color: var(--fg-bright);
 }
 
+:focus-visible {
+  outline: 1px dashed var(--accent-2);
+  outline-offset: 3px;
+}
+
 .portfolio {
   width: min(960px, 100%);
   margin: 0 auto;
   padding: 0 1rem 3rem;
 }
+
+.prompt {
+  color: var(--accent);
+}
+
+/* ── top bar ─────────────────────────────────────────────── */
 
 .topbar {
   position: sticky;
@@ -70,15 +91,14 @@ a:hover {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.75rem 1rem;
-  padding: 0.75rem 0;
+  gap: 0.5rem 1rem;
+  padding: 0.7rem 0;
   background: var(--bg);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px dashed var(--line);
 }
 
 .brand-mark {
   font-weight: 700;
-  letter-spacing: 0.04em;
   text-decoration: none;
   color: var(--fg-bright);
   white-space: nowrap;
@@ -87,24 +107,37 @@ a:hover {
 .nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.55rem 0.9rem;
+  gap: 0.3rem 0.4rem;
   flex: 1;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
 }
 
 .nav a {
   text-decoration: none;
   color: var(--muted);
+  padding: 0.1rem 0;
+}
+
+.nav a::before {
+  content: "[";
+  color: var(--line);
+  font-family: var(--font-en);
+}
+
+.nav a::after {
+  content: "]";
+  color: var(--line);
+  font-family: var(--font-en);
 }
 
 .nav a:hover {
-  color: var(--fg-bright);
+  color: var(--accent);
 }
 
 .lang-toggle {
   display: inline-flex;
-  border: 1px solid var(--line);
-  background: var(--panel);
+  align-items: center;
+  color: var(--line);
 }
 
 .lang-toggle button {
@@ -113,216 +146,332 @@ a:hover {
   background: transparent;
   color: var(--muted);
   font: inherit;
-  padding: 0.25rem 0.55rem;
+  padding: 0.3rem 0.35rem;
   cursor: pointer;
 }
 
 .lang-toggle button.active {
-  background: var(--fg);
   color: var(--bg);
+  background: var(--accent);
 }
+
+/* ── hero ────────────────────────────────────────────────── */
 
 .hero {
-  position: relative;
-  min-height: 100svh;
+  min-height: 72svh;
   display: grid;
   align-content: center;
-  padding: 5rem 0 2.5rem;
+  gap: 0.25rem;
+  padding: 4rem 0 2.5rem;
+  animation: rise 0.8s ease-out both;
 }
 
-.hero-copy {
-  position: relative;
-  z-index: 1;
-  max-width: 34rem;
-  padding: 1.25rem 0;
-  animation: copy-in 0.9s ease-out 0.25s both;
-}
-
-.hero-kicker {
-  margin: 0 0 0.35rem;
-  font-size: 0.85rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+.term-line {
+  margin: 0 0 0.75rem;
   color: var(--muted);
 }
 
-.hero-kicker::before {
-  content: "> ";
+.ascii-banner {
+  margin: 0;
+  font-family: var(--font-en);
+  /* JetBrains Mono advance width is 0.6em, so this fits --cols columns into the viewport. */
+  font-size: min(1rem, calc((min(100vw, 960px) - 2.5rem) / (var(--cols) * 0.6)));
+  line-height: 1;
   color: var(--accent);
+  text-shadow: 0 0 12px rgb(95 255 135 / 0.25);
+  white-space: pre;
+  overflow: hidden;
 }
 
 .hero-name {
-  margin: 0;
-  font-size: clamp(1.8rem, 5vw, 3rem);
-  line-height: 1.1;
-  letter-spacing: 0.02em;
+  margin: 1.1rem 0 0;
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
   color: var(--fg-bright);
+}
+
+.hero-name::before {
+  content: "> ";
+  color: var(--accent);
+  font-family: var(--font-en);
 }
 
 .hero-tagline {
-  margin: 0.85rem 0 1.25rem;
-  max-width: 28rem;
-  color: var(--fg);
-  line-height: 1.55;
+  margin: 0.5rem 0 1.5rem;
+  max-width: 44rem;
+  line-height: 1.6;
 }
 
-.hero-cta {
+.btn {
   display: inline-block;
-  font-family: var(--font-en);
-  color: var(--bg);
-  background: var(--fg);
-  padding: 0.55rem 0.95rem;
-  text-decoration: none;
-  border: 1px solid var(--fg);
-  transition: background 160ms ease, color 160ms ease;
-}
-
-.hero-cta:hover {
-  color: var(--fg);
-  background: transparent;
-}
-
-.section {
-  padding: 3.25rem 0 0.5rem;
-  animation: section-fade 0.7s ease both;
-}
-
-.section h2 {
-  margin: 0.4rem 0 1rem;
-  font-size: clamp(1.25rem, 2.5vw, 1.7rem);
-  letter-spacing: 0.04em;
-  color: var(--fg-bright);
-}
-
-.section h2::before {
-  content: "$ ";
+  justify-self: start;
+  padding: 0.35rem 0.4rem;
   color: var(--accent);
+  text-decoration: none;
+  transition: background 120ms ease, color 120ms ease;
 }
 
-.ascii-rule {
+.btn::before {
+  content: "[ ";
   font-family: var(--font-en);
-  font-size: 0.72rem;
-  color: var(--dim);
-  overflow-x: auto;
-  white-space: nowrap;
 }
 
-.prose {
-  margin: 0;
-  max-width: 62ch;
-  line-height: 1.7;
-  color: var(--fg);
+.btn::after {
+  content: " ]";
+  font-family: var(--font-en);
 }
 
-.stack-list,
-.project-list,
-.skills-grid {
-  list-style: none;
+.btn:hover {
+  color: var(--bg);
+  background: var(--accent);
+}
+
+.btn-small {
+  font-size: 0.85rem;
+  padding: 0.15rem 0.2rem;
+}
+
+/* ── ASCII box ───────────────────────────────────────────── */
+
+.ascii-box {
+  min-width: 0;
+  margin: 2.75rem 0 0;
+  font-family: var(--font-en);
+  animation: rise 0.6s ease both;
+}
+
+.box-row {
+  display: flex;
   margin: 0;
-  padding: 0;
+  font-size: inherit;
+  font-weight: 400;
+  /* line-height 1 makes ┌ ┐ └ ┘ fill the whole cell so they meet the side walls */
+  line-height: 1;
+  white-space: pre;
+  color: var(--line);
+  overflow: hidden;
+}
+
+.box-fill {
+  flex: 1 1 0;
+  width: 0;
+  min-width: 1ch;
+  overflow: hidden;
+}
+
+.box-title {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--fg-bright);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.box-meta-wrap {
+  flex-shrink: 0;
+}
+
+.box-meta {
+  color: var(--accent-2);
+}
+
+.box-body {
+  position: relative;
+  padding: 0.6rem 2.5ch 0.8rem;
+}
+
+/* side walls: centred in the first / last character cell */
+.box-body::before,
+.box-body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-left: 1px solid var(--line);
+}
+
+.box-body::before {
+  left: calc(0.5ch - 0.5px);
+}
+
+.box-body::after {
+  right: calc(0.5ch - 0.5px);
+}
+
+.ascii-box .ascii-box {
+  margin-top: 0;
+}
+
+.project-list {
   display: grid;
   gap: 1.25rem;
 }
 
-.entry,
-.project-entry {
-  padding: 0.35rem 0 1rem;
-  border-bottom: 1px dashed var(--line);
+.project .box-title {
+  color: var(--accent);
+  letter-spacing: 0;
+}
+
+.project-meta {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* ── text ────────────────────────────────────────────────── */
+
+.box-body p {
+  margin: 0.3rem 0;
+  line-height: 1.6;
+}
+
+.prose {
+  max-width: 70ch;
+  line-height: 1.7;
+}
+
+.meta,
+.muted {
+  color: var(--muted);
+}
+
+.meta {
+  font-size: 0.85rem;
+}
+
+.accent {
+  color: var(--accent);
 }
 
 .entry-head {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 0.35rem 1rem;
-  margin-bottom: 0.35rem;
+  gap: 0.2rem 1rem;
 }
 
-.entry p,
-.project-entry p {
-  margin: 0.25rem 0;
-  line-height: 1.55;
-}
-
-.meta {
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-.muted {
-  color: var(--muted);
-}
-
-.accent {
-  color: var(--accent);
-  font-weight: 700;
-}
-
-.project-cat,
-.stack-line,
-.project-links {
-  font-size: 0.92rem;
-}
-
-.skills-grid {
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1rem;
-}
-
-.skills-grid li {
-  padding: 0.25rem 0;
-}
-
-.skills-grid strong {
-  display: block;
-  margin-bottom: 0.35rem;
+.entry-head strong,
+.tree > li > strong {
   color: var(--fg-bright);
 }
 
-.contact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem 1.5rem;
+/* ── tree list (├─ └─) ───────────────────────────────────── */
+
+.tree {
+  list-style: none;
   margin: 0;
+  padding: 0;
 }
 
-.contact-grid dt {
+.tree > li {
+  position: relative;
+  padding: 0 0 1rem 3ch;
+}
+
+.tree > li:last-child {
+  padding-bottom: 0.2rem;
+}
+
+.tree > li::before {
+  content: "├─ ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--line);
+  font-family: var(--font-en);
+  line-height: 1.6;
+}
+
+.tree > li:last-child::before {
+  content: "└─ ";
+}
+
+/* vertical connector running down to the next sibling */
+.tree > li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: calc(0.5ch - 0.5px);
+  top: 1.2em;
+  bottom: 0;
+  border-left: 1px solid var(--line);
+}
+
+/* ── tags ────────────────────────────────────────────────── */
+
+.tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.6rem;
+  margin: 0.5rem 0 0.25rem;
+  padding: 0;
   font-size: 0.8rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.contact-grid dd {
-  margin: 0.25rem 0 0;
   color: var(--fg);
 }
 
-.social-row {
+.tags li::before {
+  content: "[";
+  color: var(--line);
+}
+
+.tags li::after {
+  content: "]";
+  color: var(--line);
+}
+
+.project-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.85rem;
-  margin: 1.25rem 0 0;
+  gap: 0.25rem 0.75rem;
 }
 
-.edit-hint {
-  margin-top: 1.5rem;
-  font-size: 0.85rem;
-  color: var(--muted);
+/* ── contact key ....... value ──────────────────────────── */
+
+.kv-list {
+  margin: 0;
+  display: grid;
+  gap: 0.35rem;
 }
+
+.kv {
+  display: flex;
+  gap: 0.5ch;
+  align-items: baseline;
+  min-width: 0;
+}
+
+.kv dt {
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.kv-dots {
+  flex: 1;
+  min-width: 2ch;
+  overflow: hidden;
+  white-space: nowrap;
+  color: var(--line);
+}
+
+.kv dd {
+  margin: 0;
+  max-width: 70%;
+  overflow-wrap: anywhere;
+  text-align: right;
+}
+
+/* ── footer ──────────────────────────────────────────────── */
 
 .site-footer {
-  padding: 2.5rem 0 1rem;
-  text-align: center;
+  padding: 3rem 0 1rem;
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .cursor {
-  display: inline-block;
-  margin-left: 2px;
-  animation: blink 1.05s steps(1) infinite;
+  margin-left: 0.3ch;
   color: var(--accent);
+  font-family: var(--font-en);
+  animation: blink 1.05s steps(1) infinite;
 }
 
 @keyframes blink {
@@ -331,18 +480,7 @@ a:hover {
   }
 }
 
-@keyframes copy-in {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes section-fade {
+@keyframes rise {
   from {
     opacity: 0;
     transform: translateY(8px);
@@ -353,19 +491,43 @@ a:hover {
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 @media (max-width: 720px) {
+  :root {
+    --mono-size: 0.85rem;
+  }
+
   .topbar {
-    align-items: flex-start;
+    justify-content: space-between;
   }
 
   .nav {
     order: 3;
-    width: 100%;
-    font-size: 0.78rem;
+    flex: 0 0 100%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 0.15rem;
+  }
+
+  .nav a {
+    white-space: nowrap;
+  }
+
+  .box-body {
+    padding-inline: 2ch;
   }
 
   .hero {
-    min-height: 92svh;
-    padding-top: 4rem;
+    min-height: auto;
+    padding: 3rem 0 1rem;
   }
 }
