@@ -172,15 +172,23 @@ a:hover {
 }
 
 .ascii-banner {
-  margin: 0;
-  font-family: var(--font-en);
-  /* JetBrains Mono advance width is 0.6em, so this fits --cols columns into the viewport. */
-  font-size: min(1rem, calc((min(100vw, 960px) - 2.5rem) / (var(--cols) * 0.6)));
-  line-height: 1;
-  color: var(--accent);
-  text-shadow: 0 0 12px rgb(95 255 135 / 0.25);
-  white-space: pre;
-  overflow: hidden;
+  display: block;
+  width: min(100%, calc(var(--cols) * 0.6rem));
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 0 6px rgb(95 255 135 / 0.3));
+}
+
+.banner-fill {
+  fill: var(--accent);
+}
+
+.banner-shadow {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 0.9;
+  stroke-linecap: square;
+  opacity: 0.55;
 }
 
 .hero-name {
