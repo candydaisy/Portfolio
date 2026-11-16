@@ -1,0 +1,381 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0a0f0a;
+  --bg-elevated: #0d160d;
+  --green: #33ff66;
+  --green-dim: #1fbf4a;
+  --green-muted: #7dff9a;
+  --green-faint: #1a5c2e;
+  --amber: #c8f060;
+  --ink: #33ff66;
+  --muted: #7dff9a99;
+  --line: #33ff6644;
+  --panel: #061006;
+  --font-terminal: var(--font-terminal), "Courier New", monospace;
+  --font-thai: var(--font-thai), "Sarabun", sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--ink);
+  --font-sans: var(--font-thai);
+  --font-mono: var(--font-terminal);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  color: var(--green);
+  font-family: var(--font-terminal);
+  background: var(--bg);
+  background-image:
+    linear-gradient(rgba(51, 255, 102, 0.03) 1px, transparent 1px),
+    radial-gradient(ellipse at center, #102010 0%, var(--bg) 70%);
+  background-size: 100% 3px, 100% 100%;
+  background-attachment: fixed;
+}
+
+html[lang="th"] .prose,
+html[lang="th"] .hero-tagline,
+html[lang="th"] .hero-name,
+html[lang="th"] h2,
+html[lang="th"] .entry,
+html[lang="th"] .nav a,
+html[lang="th"] .brand-mark {
+  font-family: var(--font-thai);
+}
+
+a {
+  color: var(--green-muted);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--amber);
+}
+
+.portfolio {
+  width: min(960px, 100%);
+  margin: 0 auto;
+  padding: 0 1rem 3rem;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  padding: 0.75rem 0;
+  background: rgba(10, 15, 10, 0.92);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand-mark {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: var(--green);
+  white-space: nowrap;
+  text-shadow: 0 0 8px rgba(51, 255, 102, 0.35);
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 0.9rem;
+  flex: 1;
+  font-size: 0.82rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--green-dim);
+}
+
+.nav a:hover {
+  color: var(--green);
+}
+
+.lang-toggle {
+  display: inline-flex;
+  border: 1px solid var(--green-dim);
+  background: var(--panel);
+}
+
+.lang-toggle button {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--green-dim);
+  font: inherit;
+  padding: 0.25rem 0.55rem;
+  cursor: pointer;
+}
+
+.lang-toggle button.active {
+  background: var(--green);
+  color: var(--bg);
+}
+
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  align-content: center;
+  padding: 5rem 0 2.5rem;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 34rem;
+  padding: 1.25rem 0;
+  animation: copy-in 0.9s ease-out 0.25s both;
+}
+
+.hero-kicker {
+  margin: 0 0 0.35rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green-dim);
+}
+
+.hero-kicker::before {
+  content: "> ";
+}
+
+.hero-name {
+  margin: 0;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  color: var(--green);
+  text-shadow: 0 0 12px rgba(51, 255, 102, 0.35);
+}
+
+.hero-tagline {
+  margin: 0.85rem 0 1.25rem;
+  max-width: 28rem;
+  color: var(--green-muted);
+  line-height: 1.55;
+}
+
+.hero-cta {
+  display: inline-block;
+  font-family: var(--font-terminal);
+  color: var(--bg);
+  background: var(--green);
+  padding: 0.55rem 0.95rem;
+  text-decoration: none;
+  border: 1px solid var(--green);
+  box-shadow: 0 0 12px rgba(51, 255, 102, 0.35);
+  transition: background 160ms ease, color 160ms ease, box-shadow 160ms ease;
+}
+
+.hero-cta:hover {
+  color: var(--green);
+  background: transparent;
+  box-shadow: 0 0 18px rgba(51, 255, 102, 0.5);
+}
+
+.section {
+  padding: 3.25rem 0 0.5rem;
+  animation: section-fade 0.7s ease both;
+}
+
+.section h2 {
+  margin: 0.4rem 0 1rem;
+  font-size: clamp(1.25rem, 2.5vw, 1.7rem);
+  letter-spacing: 0.04em;
+  color: var(--green);
+}
+
+.section h2::before {
+  content: "$ ";
+  color: var(--green-dim);
+}
+
+.ascii-rule {
+  font-family: var(--font-terminal);
+  font-size: 0.72rem;
+  color: var(--green-faint);
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.prose {
+  margin: 0;
+  max-width: 62ch;
+  line-height: 1.7;
+  color: var(--green-muted);
+}
+
+.stack-list,
+.project-list,
+.skills-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.entry,
+.project-entry {
+  padding: 0.35rem 0 1rem;
+  border-bottom: 1px dashed var(--line);
+}
+
+.entry-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.35rem 1rem;
+  margin-bottom: 0.35rem;
+}
+
+.entry p,
+.project-entry p {
+  margin: 0.25rem 0;
+  line-height: 1.55;
+}
+
+.meta {
+  color: var(--green-dim);
+  font-size: 0.9rem;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.accent {
+  color: var(--amber);
+  font-weight: 700;
+}
+
+.project-cat,
+.stack-line,
+.project-links {
+  font-size: 0.92rem;
+}
+
+.skills-grid {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.skills-grid li {
+  padding: 0.25rem 0;
+}
+
+.skills-grid strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--green);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem 1.5rem;
+  margin: 0;
+}
+
+.contact-grid dt {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--green-dim);
+}
+
+.contact-grid dd {
+  margin: 0.25rem 0 0;
+  color: var(--green);
+}
+
+.social-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin: 1.25rem 0 0;
+}
+
+.edit-hint {
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.site-footer {
+  padding: 2.5rem 0 1rem;
+  text-align: center;
+  color: var(--green-dim);
+  font-size: 0.9rem;
+}
+
+.cursor {
+  display: inline-block;
+  margin-left: 2px;
+  animation: blink 1.05s steps(1) infinite;
+  color: var(--green);
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes copy-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes section-fade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 720px) {
+  .topbar {
+    align-items: flex-start;
+  }
+
+  .nav {
+    order: 3;
+    width: 100%;
+    font-size: 0.78rem;
+  }
+
+  .hero {
+    min-height: 92svh;
+    padding-top: 4rem;
+  }
+}

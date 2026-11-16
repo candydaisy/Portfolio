@@ -1,0 +1,100 @@
+{
+  "projects": [
+    {
+      "id": "science-fair-water",
+      "title": {
+        "en": "Low-Cost Water Quality Sensor",
+        "th": "เซ็นเซอร์วัดคุณภาพน้ำราคาประหยัด"
+      },
+      "description": {
+        "en": "Built an Arduino-based sensor that measures pH and turbidity for a school science fair. Presented findings to teachers and local community members.",
+        "th": "สร้างเซ็นเซอร์บน Arduino สำหรับวัดค่า pH และความขุ่นของน้ำในงานวิทยาศาสตร์โรงเรียน นำเสนอผลต่อครูและชุมชน"
+      },
+      "date": "2025-08",
+      "role": {
+        "en": "Team Lead & Hardware",
+        "th": "หัวหน้าทีมและฮาร์ดแวร์"
+      },
+      "techStack": ["Arduino", "C++", "Sensors", "Data Analysis"],
+      "links": {
+        "github": "https://github.com/your-username/water-sensor",
+        "demo": "",
+        "report": ""
+      },
+      "category": "research",
+      "image": ""
+    },
+    {
+      "id": "club-website",
+      "title": {
+        "en": "School Club Website",
+        "th": "เว็บไซต์ชมรมโรงเรียน"
+      },
+      "description": {
+        "en": "Designed and coded a bilingual club site so members can see events, join forms, and past activities in one place.",
+        "th": "ออกแบบและเขียนเว็บไซต์ชมรมสองภาษา ให้สมาชิกดูกิจกรรม แบบฟอร์มสมัคร และผลงานเก่าได้ในที่เดียว"
+      },
+      "date": "2025-02",
+      "role": {
+        "en": "Full-stack Developer",
+        "th": "นักพัฒนา Full-stack"
+      },
+      "techStack": ["HTML", "CSS", "JavaScript", "Firebase"],
+      "links": {
+        "github": "https://github.com/your-username/club-site",
+        "demo": "https://example.com",
+        "report": ""
+      },
+      "category": "coding",
+      "image": ""
+    },
+    {
+      "id": "volunteer-tutoring",
+      "title": {
+        "en": "Peer Tutoring Program",
+        "th": "โครงการติวเตอร์เพื่อนช่วยเพื่อน"
+      },
+      "description": {
+        "en": "Organized weekly math tutoring for M.4 students. Created worksheets and tracked improvement over one semester.",
+        "th": "จัดติวคณิตศาสตร์รายสัปดาห์ให้ ม.4 จัดทำใบงานและติดตามผลการเรียนตลอดหนึ่งภาคเรียน"
+      },
+      "date": "2024-11",
+      "role": {
+        "en": "Coordinator & Tutor",
+        "th": "ผู้ประสานงานและติวเตอร์"
+      },
+      "techStack": ["Teaching", "Worksheet Design", "Google Forms"],
+      "links": {
+        "github": "",
+        "demo": "",
+        "report": ""
+      },
+      "category": "volunteer",
+      "image": ""
+    },
+    {
+      "id": "debate-club",
+      "title": {
+        "en": "Inter-school Debate Showcase",
+        "th": "การแข่งขันโต้วาทีระหว่างโรงเรียน"
+      },
+      "description": {
+        "en": "Researched policy topics, wrote speeches, and competed in an English debate tournament representing the school.",
+        "th": "ค้นคว้าหัวข้อเชิงนโยบาย เขียนสุนทรพจน์ และแข่งขันโต้วาทีภาษาอังกฤษในนามโรงเรียน"
+      },
+      "date": "2024-06",
+      "role": {
+        "en": "First Speaker",
+        "th": "วิทยากรคนที่หนึ่ง"
+      },
+      "techStack": ["Public Speaking", "Research", "English"],
+      "links": {
+        "github": "",
+        "demo": "",
+        "report": ""
+      },
+      "category": "club",
+      "image": ""
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "tagline": {
+    "en": "M.6 student building toward university — curious, steady, and ready to grow.",
+    "th": "นักเรียน ม.6 ที่เตรียมสมัครมหาวิทยาลัย — ใฝ่รู้ มั่นคง และพร้อมเติบโต"
+  },
+  "about": {
+    "en": "I am an M.6 student preparing university applications. I care about clear thinking, useful projects, and learning with other people. This portfolio collects school work, clubs, and community projects so admissions readers can see how I grow.",
+    "th": "ฉันเป็นนักเรียน ม.6 ที่กำลังเตรียมสมัครมหาวิทยาลัย สนใจการคิดอย่างเป็นระบบ โปรเจกต์ที่ใช้ได้จริง และการเรียนรู้ร่วมกับผู้อื่น พอร์ตโฟลิโอนี้รวบรวมงานโรงเรียน ชมรม และกิจกรรมชุมชน เพื่อให้คณะกรรมการรับสมัครเห็นการเติบโตของฉัน"
+  },
+  "education": [
+    {
+      "school": {
+        "en": "Your Secondary School Name",
+        "th": "ชื่อโรงเรียนมัธยมของคุณ"
+      },
+      "program": {
+        "en": "Math-Science / Arts-Math (edit me)",
+        "th": "วิทย์-คณิต / ศิลป์-คำนวณ (แก้ไขได้)"
+      },
+      "years": {
+        "en": "2021 — 2027",
+        "th": "2564 — 2570"
+      },
+      "gpa": "3.XX / 4.00",
+      "highlights": {
+        "en": "Homeroom representative · Science fair finalist · English debate team",
+        "th": "หัวหน้าห้อง · ผ่านเข้ารอบสุดท้ายงานวิทย์ · ทีมโต้วาทีภาษาอังกฤษ"
+      }
+    }
+  ],
+  "skills": [
+    {
+      "group": { "en": "Academic", "th": "วิชาการ" },
+      "items": ["Mathematics", "Physics", "English", "Research writing"]
+    },
+    {
+      "group": { "en": "Technical", "th": "ทักษะเทคนิค" },
+      "items": ["Python", "HTML/CSS", "Arduino", "Git"]
+    },
+    {
+      "group": { "en": "Soft skills", "th": "ทักษะทั่วไป" },
+      "items": ["Teamwork", "Public speaking", "Time management", "Leadership"]
+    }
+  ],
+  "awards": [
+    {
+      "title": {
+        "en": "School Science Fair — 2nd Place",
+        "th": "งานวิทยาศาสตร์โรงเรียน — รางวัลที่ 2"
+      },
+      "year": "2025",
+      "detail": {
+        "en": "Water quality sensor project with Arduino.",
+        "th": "โปรเจกต์เซ็นเซอร์คุณภาพน้ำด้วย Arduino"
+      }
+    },
+    {
+      "title": {
+        "en": "English Debate Certificate of Merit",
+        "th": "เกียรติบัตรโต้วาทีภาษาอังกฤษ"
+      },
+      "year": "2024",
+      "detail": {
+        "en": "Inter-school tournament, first speaker.",
+        "th": "การแข่งขันระหว่างโรงเรียน ตำแหน่งวิทยากรคนที่หนึ่ง"
+      }
+    }
+  ],
+  "extracurriculars": [
+    {
+      "name": {
+        "en": "Robotics / Coding Club",
+        "th": "ชมรมหุ่นยนต์ / เขียนโปรแกรม"
+      },
+      "role": {
+        "en": "Member",
+        "th": "สมาชิก"
+      },
+      "years": "2023 — present",
+      "detail": {
+        "en": "Weekly builds, contests, and peer workshops.",
+        "th": "สร้างโปรเจกต์รายสัปดาห์ แข่งขันทักษะ และเวิร์กช็อปเพื่อนช่วยเพื่อน"
+      }
+    },
+    {
+      "name": {
+        "en": "Student Council / Homeroom",
+        "th": "สภานักเรียน / หัวหน้าห้อง"
+      },
+      "role": {
+        "en": "Class representative",
+        "th": "ตัวแทนห้อง"
+      },
+      "years": "2024 — 2025",
+      "detail": {
+        "en": "Coordinated class activities and communicated with teachers.",
+        "th": "ประสานกิจกรรมห้องเรียนและสื่อสารกับครู"
+      }
+    },
+    {
+      "name": {
+        "en": "Community Service",
+        "th": "จิตอาสา"
+      },
+      "role": {
+        "en": "Volunteer",
+        "th": "อาสาสมัคร"
+      },
+      "years": "2024",
+      "detail": {
+        "en": "Weekend tutoring and local clean-up events.",
+        "th": "ติวเสาร์-อาทิตย์และกิจกรรมเก็บขยะในชุมชน"
+      }
+    }
+  ],
+  "ui": {
+    "nav": {
+      "about": { "en": "About", "th": "เกี่ยวกับ" },
+      "education": { "en": "Education", "th": "การศึกษา" },
+      "projects": { "en": "Projects", "th": "ผลงาน" },
+      "skills": { "en": "Skills", "th": "ทักษะ" },
+      "awards": { "en": "Awards", "th": "รางวัล" },
+      "extracurriculars": { "en": "Activities", "th": "กิจกรรม" },
+      "contact": { "en": "Contact", "th": "ติดต่อ" }
+    },
+    "heroCta": {
+      "en": "View projects ↓",
+      "th": "ดูผลงาน ↓"
+    },
+    "sections": {
+      "about": { "en": "About", "th": "เกี่ยวกับฉัน" },
+      "education": { "en": "Education", "th": "การศึกษา" },
+      "projects": { "en": "Projects & Work", "th": "ผลงานและโปรเจกต์" },
+      "skills": { "en": "Skills", "th": "ทักษะ" },
+      "awards": { "en": "Awards", "th": "รางวัลและความสำเร็จ" },
+      "extracurriculars": { "en": "Extracurriculars", "th": "กิจกรรมนอกหลักสูตร" },
+      "contact": { "en": "Contact", "th": "ติดต่อ" }
+    },
+    "labels": {
+      "age": { "en": "Age", "th": "อายุ" },
+      "years": { "en": "years", "th": "ปี" },
+      "dob": { "en": "Date of birth", "th": "วันเกิด" },
+      "phone": { "en": "Telephone", "th": "โทรศัพท์" },
+      "email": { "en": "Email", "th": "อีเมล" },
+      "location": { "en": "Location", "th": "ที่อยู่" },
+      "gpa": { "en": "GPA", "th": "เกรดเฉลี่ย" },
+      "role": { "en": "Role", "th": "บทบาท" },
+      "stack": { "en": "Stack", "th": "เครื่องมือ" },
+      "links": { "en": "Links", "th": "ลิงก์" },
+      "category": { "en": "Category", "th": "หมวด" },
+      "editHint": {
+        "en": "Edit data/*.json to personalize this template.",
+        "th": "แก้ไขไฟล์ data/*.json เพื่อปรับพอร์ตโฟลิโอนี้"
+      }
+    },
+    "categories": {
+      "coding": { "en": "Coding", "th": "เขียนโปรแกรม" },
+      "research": { "en": "Research", "th": "วิจัย" },
+      "club": { "en": "Club", "th": "ชมรม" },
+      "volunteer": { "en": "Volunteer", "th": "อาสาสมัคร" }
+    }
+  }
+}
