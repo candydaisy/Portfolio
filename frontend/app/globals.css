@@ -1,26 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #0a0f0a;
-  --bg-elevated: #0d160d;
-  --green: #33ff66;
-  --green-dim: #1fbf4a;
-  --green-muted: #7dff9a;
-  --green-faint: #1a5c2e;
-  --amber: #c8f060;
-  --ink: #33ff66;
-  --muted: #7dff9a99;
-  --line: #33ff6644;
-  --panel: #061006;
-  --font-terminal: var(--font-terminal), "Courier New", monospace;
-  --font-thai: var(--font-thai), "Sarabun", sans-serif;
+  --bg: #0c0c0c;
+  --fg: #cccccc;
+  --fg-bright: #ffffff;
+  --muted: #808080;
+  --dim: #666666;
+  --accent: #00ff00;
+  --line: #333333;
+  --panel: #111111;
+  --font-en: var(--font-jetbrains), "JetBrains Mono", monospace;
+  --font-th: var(--font-noto), "Noto Sans Thai", sans-serif;
 }
 
 @theme inline {
   --color-background: var(--bg);
-  --color-foreground: var(--ink);
-  --font-sans: var(--font-thai);
-  --font-mono: var(--font-terminal);
+  --color-foreground: var(--fg);
+  --font-sans: var(--font-th);
+  --font-mono: var(--font-en);
 }
 
 * {
@@ -34,16 +31,12 @@ html {
 body {
   margin: 0;
   min-height: 100%;
-  color: var(--green);
-  font-family: var(--font-terminal);
+  color: var(--fg);
+  font-family: var(--font-en);
   background: var(--bg);
-  background-image:
-    linear-gradient(rgba(51, 255, 102, 0.03) 1px, transparent 1px),
-    radial-gradient(ellipse at center, #102010 0%, var(--bg) 70%);
-  background-size: 100% 3px, 100% 100%;
-  background-attachment: fixed;
 }
 
+html[lang="th"] body,
 html[lang="th"] .prose,
 html[lang="th"] .hero-tagline,
 html[lang="th"] .hero-name,
@@ -51,17 +44,17 @@ html[lang="th"] h2,
 html[lang="th"] .entry,
 html[lang="th"] .nav a,
 html[lang="th"] .brand-mark {
-  font-family: var(--font-thai);
+  font-family: var(--font-th);
 }
 
 a {
-  color: var(--green-muted);
+  color: var(--accent);
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
 }
 
 a:hover {
-  color: var(--amber);
+  color: var(--fg-bright);
 }
 
 .portfolio {
@@ -79,7 +72,7 @@ a:hover {
   align-items: center;
   gap: 0.75rem 1rem;
   padding: 0.75rem 0;
-  background: rgba(10, 15, 10, 0.92);
+  background: var(--bg);
   border-bottom: 1px solid var(--line);
 }
 
@@ -87,9 +80,8 @@ a:hover {
   font-weight: 700;
   letter-spacing: 0.04em;
   text-decoration: none;
-  color: var(--green);
+  color: var(--fg-bright);
   white-space: nowrap;
-  text-shadow: 0 0 8px rgba(51, 255, 102, 0.35);
 }
 
 .nav {
@@ -102,16 +94,16 @@ a:hover {
 
 .nav a {
   text-decoration: none;
-  color: var(--green-dim);
+  color: var(--muted);
 }
 
 .nav a:hover {
-  color: var(--green);
+  color: var(--fg-bright);
 }
 
 .lang-toggle {
   display: inline-flex;
-  border: 1px solid var(--green-dim);
+  border: 1px solid var(--line);
   background: var(--panel);
 }
 
@@ -119,14 +111,14 @@ a:hover {
   appearance: none;
   border: 0;
   background: transparent;
-  color: var(--green-dim);
+  color: var(--muted);
   font: inherit;
   padding: 0.25rem 0.55rem;
   cursor: pointer;
 }
 
 .lang-toggle button.active {
-  background: var(--green);
+  background: var(--fg);
   color: var(--bg);
 }
 
@@ -151,11 +143,12 @@ a:hover {
   font-size: 0.85rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--green-dim);
+  color: var(--muted);
 }
 
 .hero-kicker::before {
   content: "> ";
+  color: var(--accent);
 }
 
 .hero-name {
@@ -163,33 +156,30 @@ a:hover {
   font-size: clamp(1.8rem, 5vw, 3rem);
   line-height: 1.1;
   letter-spacing: 0.02em;
-  color: var(--green);
-  text-shadow: 0 0 12px rgba(51, 255, 102, 0.35);
+  color: var(--fg-bright);
 }
 
 .hero-tagline {
   margin: 0.85rem 0 1.25rem;
   max-width: 28rem;
-  color: var(--green-muted);
+  color: var(--fg);
   line-height: 1.55;
 }
 
 .hero-cta {
   display: inline-block;
-  font-family: var(--font-terminal);
+  font-family: var(--font-en);
   color: var(--bg);
-  background: var(--green);
+  background: var(--fg);
   padding: 0.55rem 0.95rem;
   text-decoration: none;
-  border: 1px solid var(--green);
-  box-shadow: 0 0 12px rgba(51, 255, 102, 0.35);
-  transition: background 160ms ease, color 160ms ease, box-shadow 160ms ease;
+  border: 1px solid var(--fg);
+  transition: background 160ms ease, color 160ms ease;
 }
 
 .hero-cta:hover {
-  color: var(--green);
+  color: var(--fg);
   background: transparent;
-  box-shadow: 0 0 18px rgba(51, 255, 102, 0.5);
 }
 
 .section {
@@ -201,18 +191,18 @@ a:hover {
   margin: 0.4rem 0 1rem;
   font-size: clamp(1.25rem, 2.5vw, 1.7rem);
   letter-spacing: 0.04em;
-  color: var(--green);
+  color: var(--fg-bright);
 }
 
 .section h2::before {
   content: "$ ";
-  color: var(--green-dim);
+  color: var(--accent);
 }
 
 .ascii-rule {
-  font-family: var(--font-terminal);
+  font-family: var(--font-en);
   font-size: 0.72rem;
-  color: var(--green-faint);
+  color: var(--dim);
   overflow-x: auto;
   white-space: nowrap;
 }
@@ -221,7 +211,7 @@ a:hover {
   margin: 0;
   max-width: 62ch;
   line-height: 1.7;
-  color: var(--green-muted);
+  color: var(--fg);
 }
 
 .stack-list,
@@ -255,7 +245,7 @@ a:hover {
 }
 
 .meta {
-  color: var(--green-dim);
+  color: var(--muted);
   font-size: 0.9rem;
 }
 
@@ -264,7 +254,7 @@ a:hover {
 }
 
 .accent {
-  color: var(--amber);
+  color: var(--accent);
   font-weight: 700;
 }
 
@@ -286,7 +276,7 @@ a:hover {
 .skills-grid strong {
   display: block;
   margin-bottom: 0.35rem;
-  color: var(--green);
+  color: var(--fg-bright);
 }
 
 .contact-grid {
@@ -300,12 +290,12 @@ a:hover {
   font-size: 0.8rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--green-dim);
+  color: var(--muted);
 }
 
 .contact-grid dd {
   margin: 0.25rem 0 0;
-  color: var(--green);
+  color: var(--fg);
 }
 
 .social-row {
@@ -324,7 +314,7 @@ a:hover {
 .site-footer {
   padding: 2.5rem 0 1rem;
   text-align: center;
-  color: var(--green-dim);
+  color: var(--muted);
   font-size: 0.9rem;
 }
 
@@ -332,7 +322,7 @@ a:hover {
   display: inline-block;
   margin-left: 2px;
   animation: blink 1.05s steps(1) infinite;
-  color: var(--green);
+  color: var(--accent);
 }
 
 @keyframes blink {

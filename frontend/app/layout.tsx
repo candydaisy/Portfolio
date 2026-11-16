@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, Sarabun } from "next/font/google";
+import { JetBrains_Mono, Noto_Sans_Thai } from "next/font/google";
 import { LanguageProvider } from "@/components/LanguageProvider";
 import "./globals.css";
 
-const terminal = IBM_Plex_Mono({
-  variable: "--font-terminal",
+const jetbrains = JetBrains_Mono({
+  variable: "--font-jetbrains",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
 
-const thai = Sarabun({
-  variable: "--font-thai",
+const noto = Noto_Sans_Thai({
+  variable: "--font-noto",
   subsets: ["thai", "latin"],
   weight: ["400", "500", "600", "700"],
 });
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${terminal.variable} ${thai.variable} h-full`}>
+    <html lang="en" className={`${jetbrains.variable} ${noto.variable} h-full`}>
       <body className="min-h-full flex flex-col">
         <LanguageProvider>{children}</LanguageProvider>
       </body>
